@@ -1,17 +1,23 @@
-import { useState, useEffect, Ref } from "react";
+import { useState, useEffect, RefObject } from "react";
 
-function usePip(videoRef: Ref<HTMLVideoElement>) {
+function usePip(videoRef: RefObject<HTMLVideoElement>) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    if (!("pictureInPictureEnabled" in document)) {
-      setError("Feature is not available");
+    if (!videoRef.current) {
+      return;
+    }
+    if (
+      !document.pictureInPictureEnabled ||
+      videoRef.current.disablePictureInPicture
+    ) {
+      setError("NotSupportedError");
       setLoading(false);
       return;
     }
-    if (videoRef) {
-    }
   }, [videoRef]);
+
   return {
     error,
     loading,

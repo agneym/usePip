@@ -6,18 +6,21 @@
     : (e.usePip = t(e.react));
 })(this, function(e) {
   return function(t) {
-    var n = e.useState(!0)[0],
-      u = e.useState(null),
-      i = u[0],
-      o = u[1];
+    var n = e.useState(!0),
+      u = n[0],
+      i = n[1],
+      r = e.useState(null),
+      o = r[0],
+      f = r[1];
     return (
       e.useEffect(
         function() {
-          "pictureInPictureEnabled" in document || o("Not Available");
+          if (!("pictureInPictureEnabled" in document))
+            return f("Feature is not available"), void i(!1);
         },
         [t]
       ),
-      { error: i, loading: n }
+      { error: o, loading: u }
     );
   };
 });
