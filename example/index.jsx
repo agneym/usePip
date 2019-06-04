@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom";
 
-import video from "./big-buck-bunny.mp4";
 import usePip from "../src";
 
 function App() {
@@ -10,11 +9,15 @@ function App() {
   const { loading, error, toggle } = usePip(videoRef);
   return (
     <main className="App">
-      <sub>
-        Credits: Media files are © Blender Foundation | www.blender.org.
-      </sub>
-      <video controls ref={videoRef}>
-        <source src={video} type="video/mp4" />
+      <video
+        controls
+        ref={videoRef}
+        poster="http://media.w3.org/2010/05/bunny/poster.png"
+      >
+        <source
+          src="http://media.w3.org/2010/05/bunny/movie.mp4"
+          type="video/mp4"
+        />
       </video>
       {!loading && error !== "NotSupportedError" && (
         <button onClick={toggle} disabled={loading} className="pip-button">
