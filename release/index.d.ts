@@ -4,6 +4,6 @@ declare function usePip(
 ): {
   error: string | null;
   loading: boolean;
-  toggle: () => Promise<void>;
+  toggle: () => void;
 };
 export default usePip;

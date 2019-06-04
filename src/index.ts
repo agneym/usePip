@@ -18,12 +18,13 @@ function usePip(videoRef: RefObject<HTMLVideoElement>) {
       setLoading(false);
       return;
     }
+    setLoading(false);
   }, [videoRef]);
 
   return {
     error,
     loading,
-    toggle: toggle(videoRef),
+    toggle: toggle(videoRef, setError),
   };
 }
 

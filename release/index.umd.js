@@ -5,25 +5,36 @@
     ? define(["react"], t)
     : (e.usePip = t(e.react));
 })(this, function(e) {
-  return function(t) {
+  function t(e, t) {
+    return function() {
+      document.pictureInPictureElement
+        ? document.exitPictureInPicture().catch(function(e) {
+            t(e);
+          })
+        : e.current.requestPictureInPicture().catch(function(e) {
+            t(e);
+          });
+    };
+  }
+  return function(n) {
     var r = e.useState(!0),
-      n = r[0],
-      u = r[1],
-      o = e.useState(null),
-      i = o[0],
-      c = o[1];
+      u = r[0],
+      c = r[1],
+      i = e.useState(null),
+      o = i[0],
+      f = i[1];
     return (
       e.useEffect(
         function() {
-          if (t.current)
+          if (n.current)
             return !document.pictureInPictureEnabled ||
-              t.current.disablePictureInPicture
-              ? (c("NotSupportedError"), void u(!1))
-              : void 0;
+              n.current.disablePictureInPicture
+              ? (f("NotSupportedError"), void c(!1))
+              : void c(!1);
         },
-        [t]
+        [n]
       ),
-      { error: i, loading: n, toggle: function() {} }
+      { error: o, loading: u, toggle: t(n, f) }
     );
   };
 });

@@ -1,23 +1,34 @@
 var e = require("react");
+function t(e, t) {
+  return function() {
+    document.pictureInPictureElement
+      ? document.exitPictureInPicture().catch(function(e) {
+          t(e);
+        })
+      : e.current.requestPictureInPicture().catch(function(e) {
+          t(e);
+        });
+  };
+}
 module.exports = function(r) {
-  var t = e.useState(!0),
-    u = t[0],
-    n = t[1],
-    o = e.useState(null),
-    i = o[0],
-    c = o[1];
+  var u = e.useState(!0),
+    n = u[0],
+    c = u[1],
+    i = e.useState(null),
+    o = i[0],
+    a = i[1];
   return (
     e.useEffect(
       function() {
         if (r.current)
           return !document.pictureInPictureEnabled ||
             r.current.disablePictureInPicture
-            ? (c("NotSupportedError"), void n(!1))
-            : void 0;
+            ? (a("NotSupportedError"), void c(!1))
+            : void c(!1);
       },
       [r]
     ),
-    { error: i, loading: u, toggle: function() {} }
+    { error: o, loading: n, toggle: t(r, a) }
   );
 };
 //# sourceMappingURL=index.js.map

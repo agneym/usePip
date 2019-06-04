@@ -1,23 +1,34 @@
-import { useState as r, useEffect as t } from "react";
-export default function(e) {
-  var n = r(!0),
-    o = n[0],
-    u = n[1],
-    i = r(null),
-    c = i[0],
-    d = i[1];
+import { useState as t, useEffect as r } from "react";
+function e(t, r) {
+  return function() {
+    document.pictureInPictureElement
+      ? document.exitPictureInPicture().catch(function(t) {
+          r(t);
+        })
+      : t.current.requestPictureInPicture().catch(function(t) {
+          r(t);
+        });
+  };
+}
+export default function(n) {
+  var u = t(!0),
+    c = u[0],
+    i = u[1],
+    o = t(null),
+    d = o[0],
+    f = o[1];
   return (
-    t(
+    r(
       function() {
-        if (e.current)
+        if (n.current)
           return !document.pictureInPictureEnabled ||
-            e.current.disablePictureInPicture
-            ? (d("NotSupportedError"), void u(!1))
-            : void 0;
+            n.current.disablePictureInPicture
+            ? (f("NotSupportedError"), void i(!1))
+            : void i(!1);
       },
-      [e]
+      [n]
     ),
-    { error: c, loading: o, toggle: function() {} }
+    { error: d, loading: c, toggle: e(n, f) }
   );
 }
 //# sourceMappingURL=index.mjs.map
