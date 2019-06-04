@@ -19,22 +19,26 @@
   return function(n) {
     var r = e.useState(!0),
       u = r[0],
-      c = r[1],
-      i = e.useState(null),
-      o = i[0],
-      f = i[1];
+      i = r[1],
+      c = e.useState(null),
+      o = c[0],
+      d = c[1];
     return (
       e.useEffect(
-        function() {
-          if (n.current)
-            return !document.pictureInPictureEnabled ||
-              n.current.disablePictureInPicture
-              ? (f("NotSupportedError"), void c(!1))
-              : void c(!1);
+        function e() {
+          var t = n.current;
+          if (t) {
+            if (!document.pictureInPictureEnabled || t.disablePictureInPicture)
+              return d("NotSupportedError"), void i(!1);
+            0 === t.readyState &&
+              (t.addEventListener("loadedmetadata", e),
+              t.addEventListener("emptied", e)),
+              i(!1);
+          }
         },
         [n]
       ),
-      { error: o, loading: u, toggle: t(n, f) }
+      { error: o, loading: u, toggle: t(n, d) }
     );
   };
 });

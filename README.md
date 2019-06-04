@@ -7,3 +7,11 @@ A custom React hook to use [Picture in Picture](https://wicg.github.io/picture-i
 ```javascript
 const { loading, error, toggle } = usePip(videoRef);
 ```
+
+### Parameters:
+
+| Parameter |        description        | required? | default |
+| :-------: | :-----------------------: | :-------: | :-----: |
+| videoRef  | Ref for the video element |   true    |  null   |
+
+### Return:

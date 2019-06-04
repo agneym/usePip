@@ -11,24 +11,28 @@ function t(e, t) {
   };
 }
 module.exports = function(r) {
-  var u = e.useState(!0),
-    n = u[0],
-    c = u[1],
+  var n = e.useState(!0),
+    u = n[0],
+    c = n[1],
     i = e.useState(null),
-    o = i[0],
-    a = i[1];
+    a = i[0],
+    o = i[1];
   return (
     e.useEffect(
-      function() {
-        if (r.current)
-          return !document.pictureInPictureEnabled ||
-            r.current.disablePictureInPicture
-            ? (a("NotSupportedError"), void c(!1))
-            : void c(!1);
+      function e() {
+        var t = r.current;
+        if (t) {
+          if (!document.pictureInPictureEnabled || t.disablePictureInPicture)
+            return o("NotSupportedError"), void c(!1);
+          0 === t.readyState &&
+            (t.addEventListener("loadedmetadata", e),
+            t.addEventListener("emptied", e)),
+            c(!1);
+        }
       },
       [r]
     ),
-    { error: o, loading: n, toggle: t(r, a) }
+    { error: a, loading: u, toggle: t(r, o) }
   );
 };
 //# sourceMappingURL=index.js.map
