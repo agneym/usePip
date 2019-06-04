@@ -1,5 +1,7 @@
 # usePip
 
+<img src="https://img.shields.io/npm/v/use-pip.svg" />
+
 A custom React hook to use [Picture in Picture](https://wicg.github.io/picture-in-picture/) mode in [supported browsers](https://caniuse.com/#feat=picture-in-picture).
 
 ## Usage:
