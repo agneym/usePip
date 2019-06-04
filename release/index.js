@@ -13,26 +13,29 @@ function t(e, t) {
 module.exports = function(r) {
   var n = e.useState(!0),
     u = n[0],
-    c = n[1],
-    i = e.useState(null),
-    a = i[0],
-    o = i[1];
+    i = n[1],
+    c = e.useState(null),
+    o = c[0],
+    d = c[1];
   return (
     e.useEffect(
       function e() {
         var t = r.current;
-        if (t) {
-          if (!document.pictureInPictureEnabled || t.disablePictureInPicture)
-            return o("NotSupportedError"), void c(!1);
-          0 === t.readyState &&
-            (t.addEventListener("loadedmetadata", e),
-            t.addEventListener("emptied", e)),
-            c(!1);
-        }
+        if (t)
+          return !document.pictureInPictureEnabled || t.disablePictureInPicture
+            ? (d("NotSupportedError"), void i(!1))
+            : 0 === t.readyState
+            ? (t.addEventListener("loadedmetadata", e),
+              void t.addEventListener("emptied", e))
+            : (i(!1),
+              function() {
+                t.removeEventListener("loadeddata", e),
+                  t.removeEventListener("emptied", e);
+              });
       },
       [r]
     ),
-    { error: a, loading: u, toggle: t(r, o) }
+    { error: o, loading: u, toggle: t(r, d) }
   );
 };
 //# sourceMappingURL=index.js.map

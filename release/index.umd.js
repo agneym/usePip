@@ -27,14 +27,18 @@
       e.useEffect(
         function e() {
           var t = n.current;
-          if (t) {
-            if (!document.pictureInPictureEnabled || t.disablePictureInPicture)
-              return d("NotSupportedError"), void i(!1);
-            0 === t.readyState &&
-              (t.addEventListener("loadedmetadata", e),
-              t.addEventListener("emptied", e)),
-              i(!1);
-          }
+          if (t)
+            return !document.pictureInPictureEnabled ||
+              t.disablePictureInPicture
+              ? (d("NotSupportedError"), void i(!1))
+              : 0 === t.readyState
+              ? (t.addEventListener("loadedmetadata", e),
+                void t.addEventListener("emptied", e))
+              : (i(!1),
+                function() {
+                  t.removeEventListener("loadeddata", e),
+                    t.removeEventListener("emptied", e);
+                });
         },
         [n]
       ),

@@ -12,6 +12,7 @@
     "test": "jest",
     "eslint": "eslint ./src/**/*.{ts,tsx}"
   },
+  "description": "A custom react hook for triggering Picture in Picture functionality",
   "repository": "git@github.com:BoyWithSilverWings/usePip.git",
   "author": "Boy with Silver Wings <agney@outlook.in>",
   "license": "MIT",

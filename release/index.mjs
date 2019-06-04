@@ -1,38 +1,41 @@
-import { useState as t, useEffect as e } from "react";
-function r(t, e) {
+import { useState as e, useEffect as t } from "react";
+function r(e, t) {
   return function() {
     document.pictureInPictureElement
-      ? document.exitPictureInPicture().catch(function(t) {
-          e(t);
+      ? document.exitPictureInPicture().catch(function(e) {
+          t(e);
         })
-      : t.current.requestPictureInPicture().catch(function(t) {
-          e(t);
+      : e.current.requestPictureInPicture().catch(function(e) {
+          t(e);
         });
   };
 }
 export default function(n) {
-  var u = t(!0),
-    c = u[0],
-    i = u[1],
-    o = t(null),
+  var i = e(!0),
+    u = i[0],
+    c = i[1],
+    o = e(null),
     d = o[0],
     a = o[1];
   return (
-    e(
-      function t() {
-        var e = n.current;
-        if (e) {
-          if (!document.pictureInPictureEnabled || e.disablePictureInPicture)
-            return a("NotSupportedError"), void i(!1);
-          0 === e.readyState &&
-            (e.addEventListener("loadedmetadata", t),
-            e.addEventListener("emptied", t)),
-            i(!1);
-        }
+    t(
+      function e() {
+        var t = n.current;
+        if (t)
+          return !document.pictureInPictureEnabled || t.disablePictureInPicture
+            ? (a("NotSupportedError"), void c(!1))
+            : 0 === t.readyState
+            ? (t.addEventListener("loadedmetadata", e),
+              void t.addEventListener("emptied", e))
+            : (c(!1),
+              function() {
+                t.removeEventListener("loadeddata", e),
+                  t.removeEventListener("emptied", e);
+              });
       },
       [n]
     ),
-    { error: d, loading: c, toggle: r(n, a) }
+    { error: d, loading: u, toggle: r(n, a) }
   );
 }
 //# sourceMappingURL=index.mjs.map
