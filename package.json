@@ -1,6 +1,6 @@
 {
   "name": "use-pip",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "release/index.js",
   "umd:main": "release/index.umd.js",
   "source": "src/index.ts",
@@ -17,6 +17,10 @@
     "dev": "microbundle watch",
     "prettier": "prettier --write {src,example}/**/*.{js,ts,jsx,tsx}",
     "test": "jest",
+    "remove-dist": "rimraf dist",
+    "build-example": "parcel build example/index.html --public-url ./",
+    "deploy-example": "gh-pages -d dist",
+    "update-example": "npm run remove-dist && npm run build-example && npm run deploy-example",
     "eslint": "eslint ./src/**/*.{ts,tsx}"
   },
   "description": "A custom react hook for triggering Picture in Picture functionality",
@@ -33,6 +37,7 @@
     "eslint-config-prettier": "4.3.0",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.5.1",
+    "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
     "jest": "24.3.1",
     "jest-fetch-mock": "2.1.2",
@@ -43,6 +48,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-testing-library": "7.0.1",
+    "rimraf": "^2.6.3",
     "ts-jest": "24.0.2"
   },
   "peerDependencies": {
