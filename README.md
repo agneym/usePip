@@ -20,11 +20,11 @@ const { loading, error, toggle } = usePip(videoRef);
 
 ### Return:
 
-|  Name   | Description |                                      Type                                      |
-| :-----: | :---------: | :----------------------------------------------------------------------------: |
-| loading |   boolean   |             Manages loading time for setting for detecting support             |
-|  error  |   string    | Error state as described by [spec](https://wicg.github.io/picture-in-picture/) |
-| toggle  |  function   |                        toggles state of PiP in document                        |
+|  Name   | Description |                                                                              Type                                                                               |
+| :-----: | :---------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| loading |   boolean   |                                                     Manages loading time for setting for detecting support                                                      |
+|  error  |   string    | Error state as described by [spec](https://wicg.github.io/picture-in-picture/). Holds value `NotSupportedError` if browser or video does not support attribute. |
+| toggle  |  function   |                                                                toggles state of PiP in document                                                                 |
 
 ## Contributing
 
