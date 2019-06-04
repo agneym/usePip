@@ -2,6 +2,13 @@ import { useState, useEffect, RefObject } from "react";
 
 import toggle from "./toggle";
 
+/**
+ * React custom hook to use Picture-in-Picture functionality
+ * @param videoRef Reference to the video element
+ *
+ * @example
+ * const { loading, error, toggle } = usePip(videoRef);
+ */
 function usePip(videoRef: RefObject<HTMLVideoElement>) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
