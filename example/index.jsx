@@ -18,6 +18,7 @@ function App() {
           Toggle Picture in Picture
         </button>
       )}
+      {error && <p>Could not trigger Picture in Picture :(</p>}
     </main>
   );
 }
