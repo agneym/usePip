@@ -1,20 +1,23 @@
-import { useState as r, useEffect as e } from "react";
-export default function(n) {
-  var t = r(!0),
-    i = t[0],
-    o = t[1],
-    u = r(null),
-    a = u[0],
-    l = u[1];
+import { useState as r, useEffect as t } from "react";
+export default function(e) {
+  var n = r(!0),
+    o = n[0],
+    u = n[1],
+    i = r(null),
+    c = i[0],
+    d = i[1];
   return (
-    e(
+    t(
       function() {
-        if (!("pictureInPictureEnabled" in document))
-          return l("Feature is not available"), void o(!1);
+        if (e.current)
+          return !document.pictureInPictureEnabled ||
+            e.current.disablePictureInPicture
+            ? (d("NotSupportedError"), void u(!1))
+            : void 0;
       },
-      [n]
+      [e]
     ),
-    { error: a, loading: i }
+    { error: c, loading: o, toggle: function() {} }
   );
 }
 //# sourceMappingURL=index.mjs.map

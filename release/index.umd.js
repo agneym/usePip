@@ -6,21 +6,24 @@
     : (e.usePip = t(e.react));
 })(this, function(e) {
   return function(t) {
-    var n = e.useState(!0),
-      u = n[0],
-      i = n[1],
-      r = e.useState(null),
-      o = r[0],
-      f = r[1];
+    var r = e.useState(!0),
+      n = r[0],
+      u = r[1],
+      o = e.useState(null),
+      i = o[0],
+      c = o[1];
     return (
       e.useEffect(
         function() {
-          if (!("pictureInPictureEnabled" in document))
-            return f("Feature is not available"), void i(!1);
+          if (t.current)
+            return !document.pictureInPictureEnabled ||
+              t.current.disablePictureInPicture
+              ? (c("NotSupportedError"), void u(!1))
+              : void 0;
         },
         [t]
       ),
-      { error: o, loading: u }
+      { error: i, loading: n, toggle: function() {} }
     );
   };
 });

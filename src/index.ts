@@ -1,5 +1,7 @@
 import { useState, useEffect, RefObject } from "react";
 
+import toggle from "./toggle";
+
 function usePip(videoRef: RefObject<HTMLVideoElement>) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,6 +23,7 @@ function usePip(videoRef: RefObject<HTMLVideoElement>) {
   return {
     error,
     loading,
+    toggle: toggle(videoRef),
   };
 }
 
