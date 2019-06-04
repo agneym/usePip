@@ -9,12 +9,12 @@ function App() {
 
   const { loading, error, toggle } = usePip(videoRef);
   return (
-    <main>
+    <main className="App">
       <video controls ref={videoRef}>
         <source src={video} type="video/mp4" />
       </video>
       {!loading && error !== "NotSupportedError" && (
-        <button onClick={toggle} disabled={loading}>
+        <button onClick={toggle} disabled={loading} className="pip-button">
           Toggle Picture in Picture
         </button>
       )}
