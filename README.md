@@ -1,6 +1,11 @@
 # usePip
 
-<img src="https://img.shields.io/npm/v/use-pip.svg" />
+<a href="https://www.npmjs.com/package/use-pip">
+  <img src="https://img.shields.io/npm/v/use-pip.svg" />
+</a>
+<a href="https://prettier.io">
+  <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+</a>
 
 A custom React hook to use [Picture in Picture](https://wicg.github.io/picture-in-picture/) mode in [supported browsers](https://caniuse.com/#feat=picture-in-picture).
 
