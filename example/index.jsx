@@ -13,9 +13,11 @@ function App() {
       <video controls ref={videoRef}>
         <source src={video} type="video/mp4" />
       </video>
-      <button onClick={toggle} disabled={loading}>
-        Toggle Picture in Picture
-      </button>
+      {!loading && error !== "NotSupportedError" && (
+        <button onClick={toggle} disabled={loading}>
+          Toggle Picture in Picture
+        </button>
+      )}
     </main>
   );
 }
