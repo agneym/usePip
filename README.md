@@ -17,6 +17,8 @@ A custom React hook to use [Picture in Picture](https://wicg.github.io/picture-i
 const { loading, error, toggle } = usePip(videoRef);
 ```
 
+See example directory for complete code.
+
 ### Parameters:
 
 | Parameter |        description        | required? | default |
