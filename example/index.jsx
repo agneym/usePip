@@ -9,6 +9,9 @@ function App() {
   const { loading, error, toggle } = usePip(videoRef);
   return (
     <main className="App">
+      <sub>
+        Credits: Media files are © Blender Foundation | www.blender.org.
+      </sub>
       <video
         controls
         ref={videoRef}
@@ -28,6 +31,13 @@ function App() {
         <p>Your browser does not support this feature :(</p>
       )}
       {error && <p>Could not trigger Picture in Picture :(</p>}
+      <p>
+        <span>Check </span>
+        <a href="https://github.com/BoyWithSilverWings/usePip#readme">
+          Github page
+        </a>
+        <span> for usage</span>
+      </p>
     </main>
   );
 }
