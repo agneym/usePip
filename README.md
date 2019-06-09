@@ -11,6 +11,14 @@ A custom React hook to use [Picture in Picture](https://wicg.github.io/picture-i
 
 [Demo](https://boywithsilverwings.github.io/usePip)
 
+## Installation
+
+```bash
+npm install use-pip
+```
+
+Feel free to replace with yarn counterparts.
+
 ## Usage:
 
 ```javascript
