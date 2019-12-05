@@ -33,7 +33,7 @@ function App() {
       {error && <p>Could not trigger Picture in Picture :(</p>}
       <p>
         <span>Check </span>
-        <a href="https://github.com/BoyWithSilverWings/usePip#readme">
+        <a href="https://github.com/agneym/usePip#readme">
           Github page
         </a>
         <span> for usage</span>

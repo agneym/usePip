@@ -24,7 +24,7 @@
     "eslint": "eslint ./src/**/*.{ts,tsx}"
   },
   "description": "A custom react hook for triggering Picture in Picture functionality",
-  "repository": "git@github.com:BoyWithSilverWings/usePip.git",
+  "repository": "git@github.com:agneym/usePip.git",
   "author": "Boy with Silver Wings <agney@outlook.in>",
   "license": "MIT",
   "devDependencies": {
